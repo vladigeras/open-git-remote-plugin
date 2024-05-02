@@ -11,4 +11,14 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+
+    <actions>
+        <action
+                id="OpenGitRemote"
+                class="ru.vladigeras.opengitremote.OpenBrowserAction"
+                text="Open Git Remote"
+                description="Quick open git remote repository">
+            <add-to-group group-id="VcsGroups" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>
