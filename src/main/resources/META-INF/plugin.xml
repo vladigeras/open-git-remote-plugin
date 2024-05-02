@@ -19,6 +19,7 @@
                 text="Open Git Remote"
                 description="Quick open git remote repository">
             <add-to-group group-id="VcsGroups" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt G"/>
         </action>
     </actions>
 </idea-plugin>
