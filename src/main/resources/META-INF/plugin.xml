@@ -1,0 +1,14 @@
+<idea-plugin>
+    <id>ru.vladigeras.open-git-remote</id>
+    <name>Open-Git-Remote</name>
+    <vendor email="vladi6eras@gmail.com" url="https://github.com/vladigeras">vladigeras</vendor>
+
+    <description><![CDATA[
+    Use hotkey for quick open your git remote repository
+  ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+</idea-plugin>
