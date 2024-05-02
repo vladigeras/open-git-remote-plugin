@@ -14,7 +14,6 @@ repositories {
 intellij {
     version.set("2023.2.5")
     type.set("IC")
-
     plugins.set(listOf())
 }
 

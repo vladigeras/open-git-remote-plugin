@@ -1,0 +1,1 @@
+# Intellij plugin for quick open your git remote repository 
