@@ -1,4 +1,4 @@
-package ru.vladigeras.opengitremote
+package com.vladigeras.opengitremote
 
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.actionSystem.AnAction

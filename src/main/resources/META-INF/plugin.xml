@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>ru.vladigeras.open-git-remote</id>
+    <id>com.vladigeras.open-git-remote</id>
     <name>Open Git Remote</name>
     <vendor email="vladi6eras@gmail.com" url="https://github.com/vladigeras">Vladislav Gerasimov</vendor>
 
@@ -16,7 +16,7 @@
     <actions>
         <action
                 id="OpenGitRemote"
-                class="ru.vladigeras.opengitremote.OpenBrowserAction"
+                class="com.vladigeras.opengitremote.OpenBrowserAction"
                 text="Open Git Remote"
                 description="Quick open git remote repository">
             <add-to-group group-id="VcsGroups" anchor="last"/>
