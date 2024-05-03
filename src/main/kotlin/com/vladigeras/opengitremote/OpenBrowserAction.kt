@@ -3,8 +3,8 @@ package com.vladigeras.opengitremote
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
-import git4idea.repo.GitRepositoryManager
 import com.intellij.openapi.diagnostic.logger
+import git4idea.repo.GitRepositoryManager
 
 private val LOG = logger<OpenBrowserAction>()
 
@@ -18,8 +18,14 @@ class OpenBrowserAction : AnAction() {
 
         LOG.debug("Found ${remotes.size} remotes")
         remotes.forEach {
-            LOG.info("Opening ${it.first} - ${it.second.first()} in browser")
-            BrowserUtil.browse(it.second.first())
+            val rawUrl = it.second.first()
+            val resolvedUrl = UrlResolver(rawUrl).resolve()
+            if (resolvedUrl == null) {
+                LOG.warn("Unable to resolve url: $rawUrl")
+                return
+            }
+            LOG.info("Opening [${it.first}] $resolvedUrl in browser")
+            BrowserUtil.browse(resolvedUrl)
         }
     }
 }

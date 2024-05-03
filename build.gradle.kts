@@ -17,6 +17,11 @@ intellij {
     plugins.set(listOf("Git4Idea"))
 }
 
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+}
+
 tasks {
     withType<JavaCompile> {
         sourceCompatibility = "17"
@@ -24,6 +29,10 @@ tasks {
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = "17"
+    }
+
+    test {
+        useJUnitPlatform()
     }
 
     patchPluginXml {
