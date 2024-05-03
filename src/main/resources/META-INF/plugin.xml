@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>ru.vladigeras.open-git-remote</id>
-    <name>Open-Git-Remote</name>
-    <vendor email="vladi6eras@gmail.com" url="https://github.com/vladigeras">vladigeras</vendor>
+    <name>Open Git Remote</name>
+    <vendor email="vladi6eras@gmail.com" url="https://github.com/vladigeras">Vladislav Gerasimov</vendor>
 
     <description><![CDATA[
     Use hotkey for quick open your git remote repository
