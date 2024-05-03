@@ -17,9 +17,8 @@ class OpenBrowserAction : AnAction() {
             ?: return
 
         LOG.debug("Found ${remotes.size} remotes")
-
-        remotes.firstOrNull()?.let {
-            LOG.info("Opening ${it.first}: ${it.second.first()} in browser")
+        remotes.forEach {
+            LOG.info("Opening ${it.first} - ${it.second.first()} in browser")
             BrowserUtil.browse(it.second.first())
         }
     }
