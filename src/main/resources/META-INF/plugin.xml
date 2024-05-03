@@ -3,9 +3,12 @@
     <name>Open Git Remote</name>
     <vendor email="vladi6eras@gmail.com" url="https://github.com/vladigeras">Vladislav Gerasimov</vendor>
 
-    <description><![CDATA[
-    Use hotkey for quick open your git remote repository
-  ]]></description>
+    <description>
+        <![CDATA[
+            <h4>Use hotkey for quick open your git remote repository.</h4>
+            <h4>Plugin adds an action in the Git settings group.</h4>
+        ]]>
+    </description>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>Git4Idea</depends>

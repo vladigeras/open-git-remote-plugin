@@ -1,9 +1,5 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32.0845 7.94025V4H24.0203V7.9896H16.029V4H7.91553V7.94025H4V36H16.0044V32.0045C16.0058 30.9457 16.4274 29.9308 17.1766 29.1826C17.9258 28.4345 18.9412 28.0143 20 28.0143C21.0588 28.0143 22.0743 28.4345 22.8234 29.1826C23.5726 29.9308 23.9942 30.9457 23.9956 32.0045V36H36V7.94025H32.0845Z"
-          fill="url(#paint0_linear)"/>
-    <g>
-        <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="8" id="svg_2" y="9.32584" x="1.64794" stroke-width="0" stroke="#FFF" fill="#FFFFFF">Open</text>
-        <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="8" id="svg_3" y="21.87266" x="8.20224" stroke-width="0" stroke="#FFF" fill="#FFFFFF">Git</text>
-        <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="8" id="svg_4" y="32.35955" x="13.82022" stroke-width="0" stroke="#FFF" fill="#FFFFFF">Remote</text>
-    </g>
+<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <text font-weight="bold" stroke="#000" transform="matrix(1.76322 0 0 2.62899 -4.17387 -13.5466)" xml:space="preserve" text-anchor="start" font-size="9" id="svg_1" y="15.53035" x="4.5" stroke-width="0" fill="#FF0000">OGR</text>
+ </g>
 </svg>
