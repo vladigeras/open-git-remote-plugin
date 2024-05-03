@@ -4,6 +4,9 @@ import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import git4idea.repo.GitRepositoryManager
+import com.intellij.openapi.diagnostic.logger
+
+private val LOG = logger<OpenBrowserAction>()
 
 class OpenBrowserAction : AnAction() {
 
@@ -13,7 +16,10 @@ class OpenBrowserAction : AnAction() {
             ?.map { Pair(it.name, it.urls) }
             ?: return
 
+        LOG.debug("Found ${remotes.size} remotes")
+
         remotes.firstOrNull()?.let {
+            LOG.info("Opening ${it.first}: ${it.second.first()} in browser")
             BrowserUtil.browse(it.second.first())
         }
     }
