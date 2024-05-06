@@ -9,6 +9,11 @@
             <h4>Plugin adds an action in the Git settings group.</h4>
         ]]>
     </description>
+    <change-notes>
+        <![CDATA[
+            Bug fixes, improvements
+        ]]>
+    </change-notes>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>Git4Idea</depends>

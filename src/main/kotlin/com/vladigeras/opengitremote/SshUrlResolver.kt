@@ -19,11 +19,8 @@ class SshUrlResolver(
             1 -> "$DEFAULT_SCHEMA${parts[0]}"
 
             2 -> {
-                val portPart = port
-                    ?.let { ":$it" }
-                    ?: ""
                 val repo = port?.let { parts[1].removePrefix("$it/") } ?: parts[1]
-                "$DEFAULT_SCHEMA${parts[0]}$portPart/$repo"
+                "$DEFAULT_SCHEMA${parts[0]}/$repo"
             }
             else -> null
         }

@@ -33,11 +33,11 @@ class UrlResolverTest {
             UrlResolver("ssh://user@host.xz/path/to/repo.git").resolve()
         )
         assertEquals(
-            "https://host.xz:9999/path/to/repo.git",
+            "https://host.xz/path/to/repo.git",
             UrlResolver("ssh://host.xz:9999/path/to/repo.git").resolve()
         )
         assertEquals(
-            "https://host.xz:9999/path/to/repo.git",
+            "https://host.xz/path/to/repo.git",
             UrlResolver("ssh://user@host.xz:9999/path/to/repo.git").resolve()
         )
     }
