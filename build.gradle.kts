@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.vladigeras"
-version = "0.0.2"
+version = System.getenv("APP_VERSION") ?: "0.0.1"
 
 repositories {
     mavenCentral()
