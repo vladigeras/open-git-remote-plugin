@@ -7,6 +7,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
+      APP_VERSION: ${{ github.ref_name }}
       PUBLISH_TOKEN: ${{ secrets.JETBRAINS_PUBLISH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
@@ -16,4 +17,5 @@ jobs:
           java-version: 17
       - run: java -version
       - run: ./gradlew -version
-      - run: ./gradlew publishPlugin
+      - run: echo $APP_VERSION
+#      - run: ./gradlew publishPlugin
