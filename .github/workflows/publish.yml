@@ -1,0 +1,19 @@
+name: publish
+on:
+  workflow_dispatch:
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      PUBLISH_TOKEN: TEST_VALUE
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - run: java -version
+      - run: ./gradlew -version
+      - run: echo $PUBLISH_TOKEN
+      - run: printenv
+      - run: ./gradlew publishPlugin
