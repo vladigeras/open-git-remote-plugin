@@ -18,7 +18,7 @@
     <depends>com.intellij.modules.platform</depends>
     <depends>Git4Idea</depends>
     <extensions defaultExtensionNs="com.intellij">
-
+        <notificationGroup id="OpenGitRemotesNotificationGroup" displayType="BALLOON"/>
     </extensions>
 
     <actions>
@@ -26,7 +26,7 @@
                 id="OpenGitRemote"
                 class="com.vladigeras.opengitremote.OpenBrowserAction"
                 text="Open Git Remote"
-                icon="/icons/tool.svg"
+                icon="com.vladigeras.opengitremote.Icons.TOOL"
                 description="Quick open git remote repository">
             <add-to-group group-id="VcsGroups" anchor="last"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt G"/>

@@ -9,12 +9,24 @@ import git4idea.repo.GitRepositoryManager
 private val LOG = logger<OpenBrowserAction>()
 
 class OpenBrowserAction : AnAction() {
+    private val notifier = Notifier()
 
     override fun actionPerformed(e: AnActionEvent) {
-        val remotes = e.project?.let { GitRepositoryManager.getInstance(it).repositories }
-            ?.flatMap { it.remotes }
-            ?.map { Pair(it.name, it.urls) }
-            ?: return
+        e.project ?: run {
+            LOG.info("There is no active project")
+            notifier.showNotificationAboutNoActiveProject(e.project)
+            return
+        }
+
+        val remotes = e.project!!.let { GitRepositoryManager.getInstance(it).repositories }
+            .flatMap { it.remotes }
+            .map { Pair(it.name, it.urls) }
+
+        if (remotes.isEmpty()) {
+            LOG.info("There are empty remotes for repo")
+            notifier.showNotificationAboutEmptyRemotes(e.project!!)
+            return
+        }
 
         LOG.debug("Found ${remotes.size} remotes")
         remotes.forEach {
