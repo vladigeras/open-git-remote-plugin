@@ -17,14 +17,14 @@ class OpenBrowserAction : AnAction() {
             notifier.showNotificationAboutNoActiveProject(e.project)
             return
         }
-        val repositories = e.project!!.let { GitRepositoryManager.getInstance(it).repositories }
-        if (repositories.isEmpty()) {
-            LOG.info("Git repository was not found")
-            notifier.showNotificationAboutNoGitRepo(e.project!!)
-            return
-        }
+        val repository = e.project!!.let { GitRepositoryManager.getInstance(it).repositories }.firstOrNull()
+            ?: run {
+                LOG.info("Git repository was not found")
+                notifier.showNotificationAboutNoGitRepo(e.project!!)
+                return
+            }
 
-        val remotes = repositories.flatMap { it.remotes }
+        val remotes = repository.remotes
             .map { Pair(it.name, it.urls.firstOrNull()) }
             .filterNot { it.second == null }
 
