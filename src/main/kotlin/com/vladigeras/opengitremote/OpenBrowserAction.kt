@@ -20,7 +20,8 @@ class OpenBrowserAction : AnAction() {
 
         val remotes = e.project!!.let { GitRepositoryManager.getInstance(it).repositories }
             .flatMap { it.remotes }
-            .map { Pair(it.name, it.urls) }
+            .map { Pair(it.name, it.urls.firstOrNull()) }
+            .filterNot { it.second == null }
 
         if (remotes.isEmpty()) {
             LOG.info("There are empty remotes for repo")
@@ -30,7 +31,7 @@ class OpenBrowserAction : AnAction() {
 
         LOG.debug("Found ${remotes.size} remotes")
         remotes.forEach {
-            val rawUrl = it.second.first()
+            val rawUrl = it.second!!
             val resolvedUrl = UrlResolver(rawUrl).resolve()
             if (resolvedUrl == null) {
                 LOG.warn("Unable to resolve url: $rawUrl")

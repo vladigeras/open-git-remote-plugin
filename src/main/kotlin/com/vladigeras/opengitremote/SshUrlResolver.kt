@@ -11,18 +11,17 @@ class SshUrlResolver(
             .removePrefix("ssh://")
             .removePrefix("git@")
             .substringAfter("@")
-
-        val port = substringBetween(cleared, ":", "/")?.toIntOrNull()
+            .let {
+                findPort(it)?.let { p -> it.replace(":$p", "") } ?: it
+            }
 
         val parts = cleared.split(":")
         return when (parts.size) {
             1 -> "$DEFAULT_SCHEMA${parts[0]}"
-
-            2 -> {
-                val repo = port?.let { parts[1].removePrefix("$it/") } ?: parts[1]
-                "$DEFAULT_SCHEMA${parts[0]}/$repo"
-            }
+            2 -> "$DEFAULT_SCHEMA${parts[0]}/${parts[1]}"
             else -> null
         }
     }
+
+    private fun findPort(str: String) = substringBetween(str, ":", "/")?.toIntOrNull()
 }
