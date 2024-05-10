@@ -26,6 +26,7 @@
                 id="OpenGitRemote"
                 class="com.vladigeras.opengitremote.OpenBrowserAction"
                 text="Open Git Remote"
+                icon="/icons/tool.svg"
                 description="Quick open git remote repository">
             <add-to-group group-id="VcsGroups" anchor="last"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt G"/>
