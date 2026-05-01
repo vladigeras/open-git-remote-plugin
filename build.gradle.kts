@@ -30,7 +30,7 @@ tasks {
         targetCompatibility = "21"
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        compilerOptions.jvmTarget = JVM_17
+        compilerOptions.jvmTarget = JVM_21
     }
 
     test {
