@@ -1,9 +1,7 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
-
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "2.0.0"
-    id("org.jetbrains.intellij") version "1.17.4"
+    id("org.jetbrains.kotlin.jvm") version "2.3.21"
+    id("org.jetbrains.intellij.platform") version "2.16.0"
 }
 
 group = "com.vladigeras"
@@ -11,17 +9,32 @@ version = System.getenv("APP_VERSION") ?: "0.0.1"
 
 repositories {
     mavenCentral()
-}
-
-intellij {
-    version.set("2024.2")
-    type.set("IC")
-    plugins.set(listOf("Git4Idea"))
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.3")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.3")
+    intellijPlatform {
+        intellijIdea("2024.2")
+        bundledPlugin("Git4Idea")
+        testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
+    }
+    testImplementation("org.junit.jupiter:junit-jupiter-params:6.0.3")
+    testImplementation("org.junit.platform:junit-platform-launcher:6.0.3")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testImplementation("org.mockito:mockito-core:5.23.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.0.3")
+    testRuntimeOnly("junit:junit:4.13.2")
+}
+
+intellijPlatform {
+    pluginConfiguration {
+        ideaVersion {
+            sinceBuild = "242"
+        }
+        changeNotes = providers.environmentVariable("CHANGE_NOTES").orElse("<p>No release notes provided.</p>")
+    }
 }
 
 tasks {
@@ -29,26 +42,24 @@ tasks {
         sourceCompatibility = "21"
         targetCompatibility = "21"
     }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        compilerOptions.jvmTarget = JVM_21
-    }
+}
 
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+    }
+    jvmToolchain(21)
+}
+
+tasks {
     test {
         useJUnitPlatform()
     }
-
-    patchPluginXml {
-        sinceBuild.set("242")
-        untilBuild.set("")
-        changeNotes.set(System.getenv("CHANGE_NOTES") ?: "<p>No release notes provided.</p>")
-    }
-
     signPlugin {
         certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
         privateKey.set(System.getenv("PRIVATE_KEY"))
         password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
     }
-
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
