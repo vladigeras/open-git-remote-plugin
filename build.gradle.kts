@@ -14,7 +14,7 @@ repositories {
 }
 
 intellij {
-    version.set("2023.2.5")
+    version.set("2024.1")
     type.set("IC")
     plugins.set(listOf("Git4Idea"))
 }
@@ -38,7 +38,7 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("232")
+        sinceBuild.set("241")
         untilBuild.set("")
     }
 
