@@ -14,7 +14,7 @@ repositories {
 }
 
 intellij {
-    version.set("2024.1")
+    version.set("2024.2")
     type.set("IC")
     plugins.set(listOf("Git4Idea"))
 }
@@ -38,7 +38,7 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("241")
+        sinceBuild.set("242")
         untilBuild.set("")
         changeNotes.set(System.getenv("CHANGE_NOTES") ?: "<p>No release notes provided.</p>")
     }
