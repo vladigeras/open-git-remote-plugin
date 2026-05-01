@@ -40,6 +40,7 @@ tasks {
     patchPluginXml {
         sinceBuild.set("241")
         untilBuild.set("")
+        changeNotes.set(System.getenv("CHANGE_NOTES") ?: "<p>No release notes provided.</p>")
     }
 
     signPlugin {
