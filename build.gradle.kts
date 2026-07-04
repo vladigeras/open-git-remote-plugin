@@ -20,11 +20,11 @@ dependencies {
         bundledPlugin("Git4Idea")
         testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
     }
-    testImplementation("org.junit.jupiter:junit-jupiter-params:6.1.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:6.1.1")
     testImplementation("org.junit.platform:junit-platform-launcher:6.1.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.mockito:mockito-core:5.23.0")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.1.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.1.1")
     testRuntimeOnly("junit:junit:4.13.2")
 }
 
